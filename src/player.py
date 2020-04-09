@@ -8,6 +8,16 @@ from printable import printable
 class Player:
 
     ########################################
+    #   PROPERTIES
+    ########################################
+
+    @property
+    def current_room(self): return self.__current_room
+
+    @current_room.setter
+    def current_room(self, value): self.__current_room = value
+
+    ########################################
     #   METHODS
     ########################################
 
