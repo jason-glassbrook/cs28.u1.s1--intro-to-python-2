@@ -7,6 +7,10 @@ from printable import printable
 
 class Player:
 
+    ########################################
+    #   METHODS
+    ########################################
+
     def __init__(self, name, current_room=None):
 
         self.name = name
@@ -23,3 +27,5 @@ class Player:
         attr_keys = ('name', 'current_room')
 
         return printable.to_repr(self, attr_keys)
+
+    ########################################

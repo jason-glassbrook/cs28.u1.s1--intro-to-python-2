@@ -8,7 +8,7 @@ from printable import printable
 class Room:
 
     ########################################
-    #   properties
+    #   PROPERTIES
     ########################################
 
     directions = ('n', 'e', 's', 'w')
@@ -39,7 +39,7 @@ class Room:
     def w_to(self, value): self.__w_to = value
 
     ########################################
-    #   dunders
+    #   METHODS
     ########################################
 
     def __init__(self, name, description=None, **kwargs):
@@ -70,3 +70,5 @@ class Room:
         attr_keys = ('name', 'description')
 
         return printable.to_repr(self, attr_keys)
+
+    ########################################

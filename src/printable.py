@@ -5,6 +5,10 @@
 
 class printable:
 
+    ########################################
+    #   METHODS
+    ########################################
+
     @staticmethod
     def to_str(o, attr_keys):
 
@@ -15,11 +19,11 @@ class printable:
             for attr_key in attr_keys
         )
 
-        return ('\n'.join((
+        return '\n'.join((
             f'{class_name} {{',
             *attr_entries,
             '}',
-        )))
+        ))
         # -- I really don't like the hanging non-indentation in multi-line strings...
 
     @staticmethod
@@ -32,3 +36,5 @@ class printable:
         return (
             f'{class_name}({", ".join(attr_values)})'
         )
+
+    ########################################

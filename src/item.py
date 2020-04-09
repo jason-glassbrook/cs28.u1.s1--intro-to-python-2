@@ -7,6 +7,10 @@ from printable import printable
 
 class Item:
 
+    ########################################
+    #   METHODS
+    ########################################
+
     def __init__(self, name, description=None):
 
         self.name = name
@@ -23,3 +27,5 @@ class Item:
         attr_keys = ('name', 'description')
 
         return printable.to_repr(self, attr_keys)
+
+    ########################################
