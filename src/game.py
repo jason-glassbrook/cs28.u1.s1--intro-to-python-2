@@ -175,10 +175,19 @@ class Game:
 
         return normal_input
 
-    def start(self, initial_room):
+    def start(self, initial_room=None):
+
+        self.turns_history.append('/start')
+
+        if initial_room is None:
+            initial_room = self.player.current_room
+
         self.put_player_and_print(initial_room)
 
     def next_turn(self, prev_turn):
         self.turns_history.append(prev_turn)
+
+    def stop(self):
+        self.turns_history.append('/stop')
 
     ########################################
