@@ -3,6 +3,8 @@
 ############################################################
 
 import tools
+import re
+from game import Game
 from room import Room
 from player import Player
 
@@ -14,31 +16,21 @@ from player import Player
 
 rooms = {
 
-    "outside": Room("Outside Cave Entrance", """
-North of you, the cave mount beckons
-"""),
+    "outside": Room("Outside Cave Entrance", """North of you, the cave mount beckons."""),
 
-    "foyer": Room("Foyer", """
-Dim light filters in from the south.
-Dusty passages run north and east.
-"""),
+    "foyer": Room("Foyer", """Dim light filters in from the south.
+Dusty passages run north and east."""),
 
-    "overlook": Room("Grand Overlook", """
-A steep cliff appears before you, falling
+    "overlook": Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm.
-"""),
+the distance, but there is no way across the chasm."""),
 
-    "narrow": Room("Narrow Passage", """
-The narrow passage bends here from west
-to north. The smell of gold permeates the air.
-"""),
+    "narrow": Room("Narrow Passage", """The narrow passage bends here from west
+to north. The smell of gold permeates the air."""),
 
-    "treasure": Room("Treasure Chamber", """
-You"ve found the long-lost treasure
+    "treasure": Room("Treasure Chamber", """You"ve found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south.
-"""),
+earlier adventurers. The only exit is to the south."""),
 
 }
 
@@ -64,7 +56,7 @@ rooms["treasure"].s_to = rooms["narrow"]
 
 # Make a new player object that is currently in the "outside" room.
 
-player = Player("Jason", rooms["outside"])
+player = Player("Jason")
 
 # Write a loop that:
 #
@@ -129,13 +121,13 @@ verbs = tools.flatten((
 #   REPL
 ########################################
 
-turns_count = 0
+game = Game("Adventure", rooms, player)
+game.start("outside")
 
 while True:
 
     # get user input
-    raw_user_input = input("> ").strip()
-    user_input = raw_user_input.lower()
+    user_input = game.prompt_user()
 
     # check validity of user input
     if not user_input.startswith(verbs):
@@ -147,30 +139,27 @@ while True:
         if user_input.startswith(tools.flatten(meta_verbs)):
 
             if are_synonyms(meta_verbs, user_input, "quit"):
-
                 print("Goodbye!")
                 break
 
         elif user_input.startswith(tools.flatten(direction_verbs)):
 
             if are_synonyms(direction_verbs, user_input, "north"):
-
-                print("Moving north...")
+                game.move_player_north_and_print()
 
             if are_synonyms(direction_verbs, user_input, "east"):
-
-                print("Moving east...")
+                game.move_player_east_and_print()
 
             if are_synonyms(direction_verbs, user_input, "south"):
-
-                print("Moving south...")
+                game.move_player_south_and_print()
 
             if are_synonyms(direction_verbs, user_input, "west"):
-
-                print("Moving west...")
+                game.move_player_west_and_print()
 
         else:
 
             print("HOW DID YOU GET HERE? YOU SHOULD NOT BE HERE!")
 
-        turns_count += 1
+        game.next_turn(user_input)
+
+game.stop()
