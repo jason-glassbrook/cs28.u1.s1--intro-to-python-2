@@ -16,7 +16,7 @@ Up to this point, you've gotten your feet wet by working on a bunch of small Pyt
 
 ### Day 1 MVP
 
-*   [ ] Create the REPL command parser in `adventure.py` which allows the player to move to rooms in the four cardinal directions.
+*   [x] Create the REPL command parser in `adventure.py` which allows the player to move to rooms in the four cardinal directions.
 *   [x] Fill out Player and Room classes in `player.py` and `room.py`.
 
 ### Day 2 MVP
@@ -30,13 +30,13 @@ Up to this point, you've gotten your feet wet by working on a bunch of small Pyt
 
 The `/src` directory contains the files `adventure.py`, which is where the main logic for the game should live, `room.py`, which will contain the definition of the Room class, and `player.py`, which will contain the definition of the Player class.
 
-*   [ ] Add a REPL parser to `adventure.py` that accepts directional commands to move the player.
+*   [x] Add a REPL parser to `adventure.py` that accepts directional commands to move the player.
 
-    *   [ ] After each move, the REPL should print the name and description of the player's current room.
+    *   [x] After each move, the REPL should print the name and description of the player's current room.
 
-    *   [ ] Valid commands are `n`, `s`, `e` and `w` which move the player North, South, East or West.
+    *   [x] Valid commands are `n`, `s`, `e` and `w` which move the player North, South, East or West.
 
-    *   [ ] The parser should print an error if the player tries to move where there is no room.
+    *   [x] The parser should print an error if the player tries to move where there is no room.
 
 *   [x] Put the Room class in `room.py` based on what you see in `adventure.py`.
 
@@ -66,7 +66,7 @@ The `/src` directory contains the files `adventure.py`, which is where the main 
 
 *   [ ] Add a new type of sentence the parser can understand: two words.
 
-    *   [ ] Until now, the parser could just understand one sentence form:
+    *   [x] Until now, the parser could just understand one sentence form:
 
         `verb`
 
