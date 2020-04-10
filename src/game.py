@@ -57,12 +57,12 @@ class Game:
 
         if isinstance(room, Room):
 
-            print(f"--- {room.name} ---")
+            print(f"\n--- {room.name} ---\n")
             print(room.description)
 
         else:
 
-            print("\nThere is no room there.\n")
+            print("There is no room there.")
 
     ####################
     #   move player (silently)
@@ -84,7 +84,7 @@ class Game:
             target_room = self.player.current_room
 
         else:
-            print("\nGame(...).put_player -- well, that didn't work...\n")
+            print("Game(...).put_player -- well, that didn't work...")
             it_worked = False
 
         return it_worked, target_room
@@ -134,10 +134,10 @@ class Game:
         it_worked, target_room = self.move_player(direction)
 
         if it_worked:
-            print(f"\nYou move {word}...\n")
+            print(f"You move {word}...")
 
         else:
-            print(f"\nYou can't move {word}.\n")
+            print(f"You can't move {word}.")
 
         self.print_room(target_room)
 
@@ -162,7 +162,7 @@ class Game:
     def prompt_user(self):
 
         # get raw user input
-        raw_input = input("> ")
+        raw_input = input("\n> ")
         self.inputs_history["raw"].append(raw_input)
 
         # trim user input
@@ -172,6 +172,8 @@ class Game:
         # normalize user input
         normal_input = trimmed_input.lower()
         self.inputs_history["normal"].append(normal_input)
+
+        print()
 
         return normal_input
 
