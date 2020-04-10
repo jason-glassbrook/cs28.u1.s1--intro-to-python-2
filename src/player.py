@@ -24,10 +24,15 @@ class Player:
     #   METHODS
     ########################################
 
-    def __init__(self, name, current_room=None):
+    def __init__(self, name, current_room=None, items=None):
 
         self.name = name
         self.current_room = current_room
+
+        if items is None:
+            items = []
+
+        self.items = items
 
     def __str__(self):
 

@@ -45,10 +45,15 @@ class Room:
     #   METHODS
     ########################################
 
-    def __init__(self, name, description=None, **kwargs):
+    def __init__(self, name, description=None, items=None, **kwargs):
 
         self.name = name
         self.description = description
+
+        if items is None:
+            items = []
+
+        self.items = items
 
         # parse kwargs for keys in connections
         for move_key in self.connections:
