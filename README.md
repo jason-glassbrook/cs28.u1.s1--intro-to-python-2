@@ -24,7 +24,7 @@ Up to this point, you've gotten your feet wet by working on a bunch of small Pyt
 *   [ ] Make rooms able to hold multiple items.
 *   [ ] Make the player able to carry multiple items.
 *   [ ] Add items to the game that the user can carry around.
-*   [ ] Add `get [ITEM_NAME]` and `drop [ITEM_NAME]` commands to the parser.
+*   [ ] Add `take [ITEM_NAME]` and `drop [ITEM_NAME]` commands to the parser.
 
 ## Specification
 
@@ -80,9 +80,9 @@ The `/src` directory contains the files `adventure.py`, which is where the main 
 
     *   [ ] Split the entered command and see if it has 1 or 2 words in it to determine if it's the first or second form.
 
-*   [ ] Implement support for the verb `get` followed by an `Item` name. This will be used to pick up `Item`s.
+*   [ ] Implement support for the verb `take` followed by an `Item` name. This will be used to pick up `Item`s.
 
-    *   [ ] If the user enters `get` or `take` followed by an `Item` name, look at the contents of the current `Room` to see if the item is there.
+    *   [ ] If the user enters `take` followed by an `Item` name, look at the contents of the current `Room` to see if the item is there.
 
         *   [ ] If it is there, remove it from the `Room` contents, and add it to the `Player` contents.
 
@@ -98,7 +98,7 @@ The `/src` directory contains the files `adventure.py`, which is where the main 
 
         *   [ ] Add an `on_drop` method to `Item`. Implement it similar to `on_take`.
 
-*   [ ] Implement support for the verb `drop` followed by an `Item` name. This is the opposite of `get`/`take`.
+*   [ ] Implement support for the verb `drop` followed by an `Item` name. This is the opposite of `take`.
 
 *   [ ] Add the `i` and `inventory` commands that both show a list of items currently carried by the player.
 
@@ -128,7 +128,7 @@ In arbitrary order:
 
         *   Hint: `isinstance` might help you figure out if there's a `LightSource` among all the nearby `Item`s.
 
-    *   [ ] Modify the `get`/`take` code to print "Good luck finding that in the dark!" if the user tries to pick up an `Item` in the dark.
+    *   [ ] Modify the `take` code to print "Good luck finding that in the dark!" if the user tries to pick up an `Item` in the dark.
 
 *   [ ] Add methods to notify items when they are picked up or dropped.
 
