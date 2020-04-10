@@ -14,8 +14,8 @@ class Room:
     #   PROPERTIES
     ########################################
 
-    directions = ('n', 'e', 's', 'w')
-    connections = tuple(f'{dir}_to' for dir in directions)
+    directions = ("n", "e", "s", "w")
+    connections = tuple(f"{dir}_to" for dir in directions)
 
     @property
     def n_to(self): return self.__n_to
@@ -64,13 +64,13 @@ class Room:
 
     def __str__(self):
 
-        attr_keys = ('name', 'description', *self.connections)
+        attr_keys = ("name", "description", *self.connections)
 
         return printable.to_str(self, attr_keys)
 
     def __repr__(self):
 
-        attr_keys = ('name', 'description')
+        attr_keys = ("name", "description")
 
         return printable.to_repr(self, attr_keys)
 

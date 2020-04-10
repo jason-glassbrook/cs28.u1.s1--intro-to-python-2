@@ -1,7 +1,7 @@
 # direction words with synonyms
 words = (
-    ('north', 'n'),
-    ('east', 'e'),
-    ('south', 's'),
-    ('west', 'w'),
+    ("n", "north"),
+    ("e", "east"),
+    ("s", "south"),
+    ("w", "west"),
 )

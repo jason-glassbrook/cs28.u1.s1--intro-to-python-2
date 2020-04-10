@@ -14,57 +14,57 @@ from player import Player
 
 rooms = {
 
-    'outside': Room('Outside Cave Entrance', '''
+    "outside": Room("Outside Cave Entrance", """
 North of you, the cave mount beckons
-'''),
+"""),
 
-    'foyer': Room('Foyer', '''
+    "foyer": Room("Foyer", """
 Dim light filters in from the south.
 Dusty passages run north and east.
-'''),
+"""),
 
-    'overlook': Room('Grand Overlook', '''
+    "overlook": Room("Grand Overlook", """
 A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
 the distance, but there is no way across the chasm.
-'''),
+"""),
 
-    'narrow': Room('Narrow Passage', '''
+    "narrow": Room("Narrow Passage", """
 The narrow passage bends here from west
 to north. The smell of gold permeates the air.
-'''),
+"""),
 
-    'treasure': Room('Treasure Chamber', '''
-You've found the long-lost treasure
+    "treasure": Room("Treasure Chamber", """
+You"ve found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south.
-'''),
+"""),
 
 }
 
 # connect rooms
 
-rooms['outside'].n_to = rooms['foyer']
+rooms["outside"].n_to = rooms["foyer"]
 
-rooms['foyer'].s_to = rooms['outside']
-rooms['foyer'].n_to = rooms['overlook']
-rooms['foyer'].e_to = rooms['narrow']
+rooms["foyer"].s_to = rooms["outside"]
+rooms["foyer"].n_to = rooms["overlook"]
+rooms["foyer"].e_to = rooms["narrow"]
 
-rooms['overlook'].s_to = rooms['foyer']
+rooms["overlook"].s_to = rooms["foyer"]
 
-rooms['narrow'].w_to = rooms['foyer']
-rooms['narrow'].n_to = rooms['treasure']
+rooms["narrow"].w_to = rooms["foyer"]
+rooms["narrow"].n_to = rooms["treasure"]
 
-rooms['treasure'].s_to = rooms['narrow']
+rooms["treasure"].s_to = rooms["narrow"]
 
 
 ############################################################
 #   MAIN
 ############################################################
 
-# Make a new player object that is currently in the 'outside' room.
+# Make a new player object that is currently in the "outside" room.
 
-player = Player('Jason', rooms['outside'])
+player = Player("Jason", rooms["outside"])
 
 # Write a loop that:
 #
@@ -75,7 +75,7 @@ player = Player('Jason', rooms['outside'])
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
 #
-# If the user enters 'q', quit the game.
+# If the user enters "q", quit the game.
 
 
 def are_synonyms(thesaurus, *words):
@@ -108,15 +108,15 @@ def are_synonyms(thesaurus, *words):
 
 # meta verbs with synonyms
 meta_verbs = (
-    ('q', 'quit'),
+    ("q", "quit"),
 )
 
 # direction verbs with synonyms
 direction_verbs = (
-    ('n', 'north'),
-    ('e', 'east'),
-    ('s', 'south'),
-    ('w', 'west'),
+    ("n", "north"),
+    ("e", "east"),
+    ("s", "south"),
+    ("w", "west"),
 )
 
 # all the verbs!
@@ -134,43 +134,43 @@ turns_count = 0
 while True:
 
     # get user input
-    raw_user_input = input('> ').strip()
+    raw_user_input = input("> ").strip()
     user_input = raw_user_input.lower()
 
     # check validity of user input
     if not user_input.startswith(verbs):
 
-        print(f'"{user_input}" is not a recognized command. Try again.')
+        print(f"[{user_input}] is not a recognized command. Try again.")
 
     else:
 
         if user_input.startswith(tools.flatten(meta_verbs)):
 
-            if are_synonyms(meta_verbs, user_input, 'quit'):
+            if are_synonyms(meta_verbs, user_input, "quit"):
 
-                print('Goodbye!')
+                print("Goodbye!")
                 break
 
         elif user_input.startswith(tools.flatten(direction_verbs)):
 
-            if are_synonyms(direction_verbs, user_input, 'north'):
+            if are_synonyms(direction_verbs, user_input, "north"):
 
-                print('Moving north...')
+                print("Moving north...")
 
-            if are_synonyms(direction_verbs, user_input, 'east'):
+            if are_synonyms(direction_verbs, user_input, "east"):
 
-                print('Moving east...')
+                print("Moving east...")
 
-            if are_synonyms(direction_verbs, user_input, 'south'):
+            if are_synonyms(direction_verbs, user_input, "south"):
 
-                print('Moving south...')
+                print("Moving south...")
 
-            if are_synonyms(direction_verbs, user_input, 'west'):
+            if are_synonyms(direction_verbs, user_input, "west"):
 
-                print('Moving west...')
+                print("Moving west...")
 
         else:
 
-            print('HOW DID YOU GET HERE? YOU SHOULD NOT BE HERE!')
+            print("HOW DID YOU GET HERE? YOU SHOULD NOT BE HERE!")
 
         turns_count += 1

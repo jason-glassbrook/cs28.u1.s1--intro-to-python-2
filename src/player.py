@@ -31,13 +31,13 @@ class Player:
 
     def __str__(self):
 
-        attr_keys = ('name', 'current_room')
+        attr_keys = ("name", "current_room")
 
         return printable.to_str(self, attr_keys)
 
     def __repr__(self):
 
-        attr_keys = ('name', 'current_room')
+        attr_keys = ("name", "current_room")
 
         return printable.to_repr(self, attr_keys)
 

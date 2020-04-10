@@ -1,15 +1,15 @@
 # meta verbs with synonyms
 verbs = (
     (
-        ('q', 'quit'),
+        ("q", "quit"),
         0,
     ),
     (
-        'help',
+        "help",
         (0, 1),
     ),
     (
-        'alias',
+        "alias",
         2,
     ),
 )
