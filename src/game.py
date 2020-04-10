@@ -29,22 +29,22 @@ class Game:
 
         self.turns_history = []
         self.inputs_history = {
-            'raw': [],
-            'trimmed': [],
-            'normal': [],
+            "raw": [],
+            "trimmed": [],
+            "normal": [],
         }
 
     def __str__(self):
 
-        attr_keys = ('name', 'rooms', 'player',
-                     'turns_history', 'inputs_history')
+        attr_keys = ("name", "rooms", "player",
+                     "turns_history", "inputs_history")
 
         return printable.to_str(self, attr_keys)
 
     def __repr__(self):
 
-        attr_keys = ('name', 'rooms', 'player',
-                     'turns_history', 'inputs_history')
+        attr_keys = ("name", "rooms", "player",
+                     "turns_history", "inputs_history")
 
         return printable.to_repr(self, attr_keys)
 
@@ -62,7 +62,7 @@ class Game:
 
         else:
 
-            print("There is no room there.")
+            print("\nThere is no room there.\n")
 
     ####################
     #   move player (silently)
@@ -84,7 +84,7 @@ class Game:
             target_room = self.player.current_room
 
         else:
-            print("Game(...).put_player -- well, that didn't work...")
+            print("\nGame(...).put_player -- well, that didn't work...\n")
             it_worked = False
 
         return it_worked, target_room
@@ -105,16 +105,16 @@ class Game:
         return it_worked, target_room
 
     def move_player_north(self):
-        return self.move_player(('n', 'north'))
+        return self.move_player(("n", "north"))
 
     def move_player_east(self):
-        return self.move_player(('e', 'east'))
+        return self.move_player(("e", "east"))
 
     def move_player_south(self):
-        return self.move_player(('s', 'south'))
+        return self.move_player(("s", "south"))
 
     def move_player_west(self):
-        return self.move_player(('w', 'west'))
+        return self.move_player(("w", "west"))
 
     ####################
     #   move player and print
@@ -134,26 +134,26 @@ class Game:
         it_worked, target_room = self.move_player(direction)
 
         if it_worked:
-            print(f"Moving {word}...")
+            print(f"\nYou move {word}...\n")
 
         else:
-            print(f"You cannot move {word}.")
+            print(f"\nYou can't move {word}.\n")
 
         self.print_room(target_room)
 
         return it_worked, target_room
 
     def move_player_north_and_print(self):
-        return self.move_player_and_print(('n', 'north'))
+        return self.move_player_and_print(("n", "north"))
 
     def move_player_east_and_print(self):
-        return self.move_player_and_print(('e', 'east'))
+        return self.move_player_and_print(("e", "east"))
 
     def move_player_south_and_print(self):
-        return self.move_player_and_print(('s', 'south'))
+        return self.move_player_and_print(("s", "south"))
 
     def move_player_west_and_print(self):
-        return self.move_player_and_print(('w', 'west'))
+        return self.move_player_and_print(("w", "west"))
 
     ####################
     #   game flow
@@ -162,22 +162,22 @@ class Game:
     def prompt_user(self):
 
         # get raw user input
-        raw_input = input('> ')
-        self.inputs_history['raw'].append(raw_input)
+        raw_input = input("> ")
+        self.inputs_history["raw"].append(raw_input)
 
         # trim user input
-        trimmed_input = re.sub(r'\s+', ' ', raw_input.strip())
-        self.inputs_history['trimmed'].append(trimmed_input)
+        trimmed_input = re.sub(r"\s+", " ", raw_input.strip())
+        self.inputs_history["trimmed"].append(trimmed_input)
 
         # normalize user input
         normal_input = trimmed_input.lower()
-        self.inputs_history['normal'].append(normal_input)
+        self.inputs_history["normal"].append(normal_input)
 
         return normal_input
 
     def start(self, initial_room=None):
 
-        self.turns_history.append('/start')
+        self.turns_history.append("/start")
 
         if initial_room is None:
             initial_room = self.player.current_room
@@ -188,6 +188,6 @@ class Game:
         self.turns_history.append(prev_turn)
 
     def stop(self):
-        self.turns_history.append('/stop')
+        self.turns_history.append("/stop")
 
     ########################################
